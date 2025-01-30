@@ -576,15 +576,12 @@ int main(int argc, char* argv[]){
                 return 1;
         }
     }
- 
+    while (std::getline(std::cin, line)) { // Read each line
+        if (!line.empty() && line[0] == '#') { // Check if it's a comment
+            std::cout << line << std::endl; // Output or process the comment
+        }
+    }
     cin >> map_or_list;
-    while(cin>> map_or_list){
-    if(map_or_list == '#'){
-        string comment;
-        getline(cin, comment);
-        cin >> map_or_list;
-    }
-    }
     cout << map_or_list << endl;
     if(map_or_list == 'M'){
         char identite;
