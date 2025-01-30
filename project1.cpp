@@ -527,9 +527,12 @@ int main(int argc, char* argv[]){
     uint32_t N; 
 
     string comments;
+    cin >> comments;
+    cout << comments;
     while(getline(cin, comments)) {
           cout << comments << endl;
     }
+    
 
         cin >> N; 
         uint32_t row_num = 0;
