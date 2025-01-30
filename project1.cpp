@@ -628,7 +628,6 @@ int main(int argc, char* argv[]){
     
     Map Game = Map(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location,
     v, ss, ms, hunt_ordering);
-    Game.Backtracking();
     if(v){
         Game.Verbose();
     }
