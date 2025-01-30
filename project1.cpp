@@ -516,8 +516,8 @@ void print_help() {
 
 int main(int argc, char* argv[]){
     char map_or_list = ' ';
-    Coordinate starting_location;
-    Coordinate ending_location;
+    Coordinate starting_location = {0, 0, '.', '.', '.'};
+    Coordinate ending_location = {0, 0, '.', '.', '.'};
     vector<vector<Coordinate>> Full_Map;
     uint32_t maximum_number_rows;
     bool v; 
