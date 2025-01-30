@@ -529,7 +529,7 @@ int main(int argc, char* argv[]){
     string line;
     while (getline(cin, line)) {
         if (line.empty()) continue;
-        if (line[0] == '#') continue;  // Ignore comment lines
+        if (line[0] == '#') cout << line << endl;  // Ignore comment lines
         map_or_list = line[0]; // First non-comment character
         break;
     }
