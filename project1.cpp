@@ -576,6 +576,7 @@ int main(int argc, char* argv[]){
                 return 1;
         }
     }
+    string line; 
     while (std::getline(std::cin, line)) { // Read each line
         if (!line.empty() && line[0] == '#') { // Check if it's a comment
             std::cout << line << std::endl; // Output or process the comment
