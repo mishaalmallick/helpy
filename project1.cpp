@@ -526,8 +526,8 @@ int main(int argc, char* argv[]){
     int opt;
     uint32_t N; 
 
-    string comments;
-    while (getline(cin, comments)) {
+    string line;
+    while (getline(cin, line)) {
         if (line.empty()) continue;
         if (line[0] == '#') continue;  // Ignore comment lines
         map_or_list = line[0]; // First non-comment character
