@@ -581,67 +581,7 @@ int main(int argc, char* argv[]){
     getline(cin, comment);
     cin >> map_or_list;
     cout << map_or_list << endl;
-    if(map_or_list == 'M'){
-        char identite;
-        uint32_t row_count = 0;
-        uint32_t col_count = 0;
-        Coordinate submit;
-        cin >> maximum_number_rows;
-        while(cin >> identite){
-            submit.row = row_count;
-            submit.col = col_count;
-            submit.identity = identite;
-            Full_Map[row_count][col_count] = submit;
-            if(submit.identity == '@'){
-                starting_location = submit;
-            }
-            if(submit.identity == '$'){
-                ending_location = submit;
-            }
-            col_count++;
-            if(col_count == maximum_number_rows){
-                col_count = 0; 
-                row_count++;
-            }
-        }
-    }
-    if(map_or_list == 'L'){
-        uint32_t maximum_number_rows;
-        uint32_t row_num;
-        uint32_t col_num;
-        char identite;
-        Coordinate submit;
-        cin >> maximum_number_rows;
-        while(cin >> row_num){
-            cin >> col_num;
-            cin >> identite;
-            submit.row = row_num;
-            submit.col = col_num;
-            Full_Map[row_num][col_num] = submit;
-            if(submit.identity == '@'){
-                starting_location = submit;
-            }
-            if(submit.identity == '$'){
-                ending_location = submit;
-            }
-        }
-    }
-    
-    Map Game = Map(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location,
-    v, ss, ms, hunt_ordering);
-    if(v){
-        Game.Verbose();
-    }
-    if(statistics){
-        Game.Stats_Print();
-    }
-    if(map_or_list == 'M' && path){
-        Game.Treasure_Map_Print();
-    }
-    if(map_or_list == 'L' && path){
-        Game.Coordinate_Location();
-    }
-    Game.Print_Results();
+
     return 0; 
 
 }
