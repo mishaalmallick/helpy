@@ -576,9 +576,15 @@ int main(int argc, char* argv[]){
                 return 1;
         }
     }
-    string comment;
-    getline(cin, comment);
+ 
     cin >> map_or_list;
+    while(map_or_list != 'M' || map_or_list != 'L'){
+    if(map_or_list == '#'){
+        string comment;
+        getline(cin, comment);
+        cin >> map_or_list;
+    }
+    }
     cout << map_or_list << endl;
     if(map_or_list == 'M'){
         char identite;
