@@ -580,6 +580,7 @@ int main(int argc, char* argv[]){
     getline(cin, comment);
     getline(cin, comment);
     cin >> map_or_list;
+    cout << map_or_list << endl;
     if(map_or_list == 'M'){
         char identite;
         uint32_t row_count = 0;
