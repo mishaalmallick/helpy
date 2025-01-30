@@ -514,19 +514,71 @@ void print_help() {
     cout << "  --show-path, -p      Display treasure map or list of locations\n";
 }
 
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[]){ 
+    vector<vector<Coordinate>> FullMap;
+    bool verbose = false; 
+    bool captain_sq = true;
+    bool firstmate_sq = false;
+    string hunt_order = "NESW";
+    bool statistics; 
+    char show_path; 
     char map_or_list = ' ';
-    Coordinate starting_location = {0, 0, '.', '.', '.'};
-    Coordinate ending_location = {0, 0, '.', '.', '.'};
-    vector<vector<Coordinate>> Full_Map;
-    uint32_t maximum_number_rows = 0;
-    bool v; 
-    bool ss = true;
-    bool ms = false;
-    bool statistics;
-    bool path; 
-    string hunt_ordering = "";
     int opt;
+    uint32_t N; 
+    string comments;
+    while(getline(cin, comments)) {
+        if(comments[0] == 'M'){
+            map_or_list = 'M';
+            break;
+        }
+        if(comments[0] == 'L'){
+            map_or_list = 'L';
+            break;
+        }
+    }
+
+        cin >> N; 
+        uint32_t row_num = 0;
+        uint32_t col_num = 0;
+        char character; 
+        Coordinate submit; 
+        Coordinate starting;
+        Coordinate ending;
+        if(map_or_list == 'M'){
+            while(cin >> character){
+                submit.row = row_num;
+                submit.col = col_num;
+                submit.identity = character; 
+                FullMap[row_num][col_num] = submit; 
+                if(character == '@'){
+                    starting = submit;
+                }
+                if(character == '$'){
+                    ending = submit;
+                }
+                col_num++;
+                if(col_num == N){
+                    col_num = 0;
+                    row_num++;
+                }
+            }
+        }
+        if(map_or_list == 'L'){
+            while(cin >> row_num >> col_num >> character);
+            submit.row = row_num;
+            submit.col = col_num;
+            submit.identity = character; 
+            FullMap[row_num][col_num] = submit; 
+            if(character == '@'){
+                starting = submit;
+                }
+            if(character == '$'){
+                ending = submit;
+                }
+        } 
+
+        cout << starting.row << starting.col << endl; 
+
     static struct option long_options[] = {
         {"help", no_argument, 0, 'h'},
         {"captain", required_argument, 0, 'c'},
@@ -537,7 +589,6 @@ int main(int argc, char* argv[]){
         {"show-path", required_argument, 0, 'p'},
         {0, 0, 0, 0}
     };
-
     while ((opt = getopt_long(argc, argv, "hc:f:o:vsp:", long_options, nullptr)) != -1) {
         switch (opt) {
             case 'h':
@@ -546,22 +597,22 @@ int main(int argc, char* argv[]){
             case 'c':
                 cout << "Captain container: " << optarg << endl;
                 if(string(optarg) == "QUEUE"){
-                    ss = false;
+                    captain_sq = false;
                 }
                 break;
             case 'f':
                 cout << "First mate container: " << optarg << endl;
                 if(string(optarg) == "STACK"){
-                    ms = true; 
+                    firstmate_sq = true; 
                 }
                 break;
             case 'o':
                 cout << "Hunt order: " << optarg << endl;
-                hunt_ordering = optarg;
+                hunt_order = optarg;
                 break;
             case 'v':
                 cout << "Verbose mode enabled" << endl;
-                v = true; 
+                verbose = true; 
                 break;
             case 's':
                 cout << "Displaying statistics" << endl;
@@ -569,79 +620,35 @@ int main(int argc, char* argv[]){
                 break;
             case 'p':
                 cout << "Show path mode: " << optarg << endl;
-                path = true; 
+                show_path = string(optarg)[0]; 
                 break;
             default:
                 print_help();
                 return 1;
         }
-    }
-    string comment;
-    getline(cin, comment);
-    cin >> map_or_list;
-    if(map_or_list == 'M'){
-        char identite;
-        uint32_t row_count = 0;
-        uint32_t col_count = 0;
-        Coordinate submit;
-        cin >> maximum_number_rows;
-        while(cin >> identite){
-            submit.row = row_count;
-            submit.col = col_count;
-            submit.identity = identite;
-            Full_Map[row_count][col_count] = submit;
-            if(submit.identity == '@'){
-                starting_location = submit;
-            }
-            if(submit.identity == '$'){
-                ending_location = submit;
-            }
-            col_count++;
-            if(col_count == maximum_number_rows){
-                col_count = 0; 
-                row_count++;
-            }
-        }
-    }
-    if(map_or_list == 'L'){
-        uint32_t maximum_number_rows;
-        uint32_t row_num;
-        uint32_t col_num;
-        char identite;
-        Coordinate submit;
-        cin >> maximum_number_rows;
-        while(cin >> row_num){
-            cin >> col_num;
-            cin >> identite;
-            submit.row = row_num;
-            submit.col = col_num;
-            Full_Map[row_num][col_num] = submit;
-            if(submit.identity == '@'){
-                starting_location = submit;
-            }
-            if(submit.identity == '$'){
-                ending_location = submit;
-            }
-        }
-    }
+
+ 
     
-    Map Game = Map(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location,
-    v, ss, ms, hunt_ordering);
-    Game.Router();
-    Game.Backtracking();
-    if(v){
-        Game.Verbose();
-    }
-    if(statistics){
-        Game.Stats_Print();
-    }
-    if(map_or_list == 'M' && path){
-        Game.Treasure_Map_Print();
-    }
-    if(map_or_list == 'L' && path){
-        Game.Coordinate_Location();
-    }
-    Game.Print_Results();
+   
+        if(verbose){
+            cout << " hi" << endl;
+        }
+        if(statistics){
+            cout << " hi" << endl;
+        }
+        if(show_path == 'M'){
+           cout << " hi" << endl;
+        }
+        if(show_path == 'L'){
+            cout << " hi" << endl;
+        }
+        if(captain_sq && firstmate_sq){
+            cout << "g" << endl; 
+        }
+       
+
+    };
+
     return 0; 
 
 }
