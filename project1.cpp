@@ -516,10 +516,6 @@ void print_help() {
 
 int main(int argc, char* argv[]){
     char map_or_list = ' ';
-    Coordinate starting_location = {0, 0, '.', '.', '.'};
-    Coordinate ending_location = {0, 0, '.', '.', '.'};
-    vector<vector<Coordinate>> Full_Map;
-    uint32_t maximum_number_rows = 0;
     bool v = false; 
     bool ss = true;
     bool ms = false;
@@ -588,21 +584,10 @@ cout << "x" << endl;
     if(map_or_list == 'L'){
  cout << "h" << endl;
     }
-    
-    Map Game = Map(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location,
-    v, ss, ms, hunt_ordering);
-    if(v){
-        Game.Verbose();
-    }
-    if(statistics){
-        Game.Stats_Print();
-    }
-    if(map_or_list == 'M' && path){
-        Game.Treasure_Map_Print();
-    }
-    if(map_or_list == 'L' && path){
-        Game.Coordinate_Location();
-    }
+    if(v) { cout << "hi" << endl;}
+    if(statistics){ cout << "hi" << endl; }
+    if(ms &&ss && path) { cout << hunt_ordering << endl;}
+
 
 
     return 0; 
