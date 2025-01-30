@@ -166,5 +166,19 @@ int main(int argc, char* argv[]) {
     
     Map Game(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location, v, ss, ms, hunt_ordering);
     Game.Router();
+    Game.Backtracking();
+       if(v){
+        Game.Verbose();
+    }
+    if(statistics){
+        Game.Stats_Print();
+    }
+    if(map_or_list == 'M' && path){
+        Game.Treasure_Map_Print();
+    }
+    if(map_or_list == 'L' && path){
+        Game.Coordinate_Location();
+    }
+    Game.Print_Results();
     return 0;
 }
