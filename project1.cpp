@@ -525,56 +525,10 @@ int main(int argc, char* argv[]){
     char map_or_list = ' ';
     int opt;
     uint32_t N; 
-  
-    static struct option long_options[] = {
-        {"help", no_argument, 0, 'h'},
-        {"captain", required_argument, 0, 'c'},
-        {"first-mate", required_argument, 0, 'f'},
-        {"hunt-order", required_argument, 0, 'o'},
-        {"verbose", no_argument, 0, 'v'},
-        {"stats", no_argument, 0, 's'},
-        {"show-path", required_argument, 0, 'p'},
-        {0, 0, 0, 0}
-    };
-    while ((opt = getopt_long(argc, argv, "hc:f:o:vsp:", long_options, nullptr)) != -1) {
-        switch (opt) {
-            case 'h':
-                print_help();
-                return 0;
-            case 'c':
-                cout << "Captain container: " << optarg << endl;
-                if(string(optarg) == "QUEUE"){
-                    captain_sq = false;
-                }
-                break;
-            case 'f':
-                cout << "First mate container: " << optarg << endl;
-                if(string(optarg) == "STACK"){
-                    firstmate_sq = true; 
-                }
-                break;
-            case 'o':
-                cout << "Hunt order: " << optarg << endl;
-                hunt_order = optarg;
-                break;
-            case 'v':
-                cout << "Verbose mode enabled" << endl;
-                verbose = true; 
-                break;
-            case 's':
-                cout << "Displaying statistics" << endl;
-                statistics = true; 
-                break;
-            case 'p':
-                cout << "Show path mode: " << optarg << endl;
-                show_path = string(optarg)[0]; 
-                break;
-            default:
-                print_help();
-                return 1;
-        }
 
-   string comments;
+    string comments;
+    cin >> comments; 
+    cout << comments << endl; 
     while(getline(cin, comments)) {
         cout << "wha" << endl;
         if(comments[0] == 'M'){
@@ -631,6 +585,56 @@ int main(int argc, char* argv[]){
 
         cout << starting.row << starting.col << endl; 
 
+  
+    static struct option long_options[] = {
+        {"help", no_argument, 0, 'h'},
+        {"captain", required_argument, 0, 'c'},
+        {"first-mate", required_argument, 0, 'f'},
+        {"hunt-order", required_argument, 0, 'o'},
+        {"verbose", no_argument, 0, 'v'},
+        {"stats", no_argument, 0, 's'},
+        {"show-path", required_argument, 0, 'p'},
+        {0, 0, 0, 0}
+    };
+    while ((opt = getopt_long(argc, argv, "hc:f:o:vsp:", long_options, nullptr)) != -1) {
+        switch (opt) {
+            case 'h':
+                print_help();
+                return 0;
+            case 'c':
+                cout << "Captain container: " << optarg << endl;
+                if(string(optarg) == "QUEUE"){
+                    captain_sq = false;
+                }
+                break;
+            case 'f':
+                cout << "First mate container: " << optarg << endl;
+                if(string(optarg) == "STACK"){
+                    firstmate_sq = true; 
+                }
+                break;
+            case 'o':
+                cout << "Hunt order: " << optarg << endl;
+                hunt_order = optarg;
+                break;
+            case 'v':
+                cout << "Verbose mode enabled" << endl;
+                verbose = true; 
+                break;
+            case 's':
+                cout << "Displaying statistics" << endl;
+                statistics = true; 
+                break;
+            case 'p':
+                cout << "Show path mode: " << optarg << endl;
+                show_path = string(optarg)[0]; 
+                break;
+            default:
+                print_help();
+                return 1;
+        }
+
+  
     
    
         if(verbose){
