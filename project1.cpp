@@ -527,6 +527,7 @@ int main(int argc, char* argv[]){
     uint32_t N; 
     string comments;
     while(getline(cin, comments)) {
+        cout << "wha" << endl;
         if(comments[0] == 'M'){
             cout << "Hello" << endl;
             map_or_list = 'M';
