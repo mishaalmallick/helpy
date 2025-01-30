@@ -527,8 +527,12 @@ int main(int argc, char* argv[]){
     uint32_t N; 
 
     string comments;
-    cin >> comments;
-    cout << comments;
+    while (getline(cin, comments)) {
+        if (line.empty()) continue;
+        if (line[0] == '#') continue;  // Ignore comment lines
+        map_or_list = line[0]; // First non-comment character
+        break;
+    }
     
 
         cin >> N; 
