@@ -520,11 +520,11 @@ int main(int argc, char* argv[]){
     Coordinate ending_location = {0, 0, '.', '.', '.'};
     vector<vector<Coordinate>> Full_Map;
     uint32_t maximum_number_rows = 0;
-    bool v; 
+    bool v = false; 
     bool ss = true;
     bool ms = false;
-    bool statistics;
-    bool path; 
+    bool statistics = false;
+    bool path = false; 
     string hunt_ordering = "";
     int opt;
     static struct option long_options[] = {
