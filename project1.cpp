@@ -544,6 +544,7 @@ int main(int argc, char* argv[]){
         Coordinate submit; 
         Coordinate starting;
         Coordinate ending;
+        cout << map_or_list << endl;
         if(map_or_list == 'M'){
             while(cin >> character){
                 submit.row = row_num;
@@ -567,7 +568,7 @@ int main(int argc, char* argv[]){
             while(cin >> row_num >> col_num >> character);
             submit.row = row_num;
             submit.col = col_num;
-            submit.identity = character; 
+            submit.identity = character;
             FullMap[row_num][col_num] = submit; 
             if(character == '@'){
                 starting = submit;
