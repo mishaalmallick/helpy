@@ -577,7 +577,8 @@ int main(int argc, char* argv[]){
         }
     }
     string comment;
-    while (getline(cin, comment) && !comment.empty());
+    getline(cin, comment);
+    getline(cin, comment);
     cin >> map_or_list;
     if(map_or_list == 'M'){
         char identite;
