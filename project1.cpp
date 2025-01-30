@@ -578,7 +578,7 @@ int main(int argc, char* argv[]){
     }
  
     cin >> map_or_list;
-    while(map_or_list != 'M' && map_or_list != 'L'){
+    while(cin>> map_or_list){
     if(map_or_list == '#'){
         string comment;
         getline(cin, comment);
