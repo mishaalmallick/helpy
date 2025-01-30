@@ -527,16 +527,12 @@ int main(int argc, char* argv[]){
     uint32_t N; 
 
     string comments;
-    cin >> comments; 
-    cout << comments << endl; 
     while(getline(cin, comments)) {
-        cout << "wha" << endl;
-        if(comments[0] == 'M'){
-            cout << "Hello" << endl;
+        if(comments == "M"){
             map_or_list = 'M';
             break;
         }
-        if(comments[0] == 'L'){
+        if(comments == "L"){
             map_or_list = 'L';
             break;
         }
