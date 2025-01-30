@@ -529,9 +529,6 @@ int main(int argc, char* argv[]){
     string comments;
     cin >> comments;
     cout << comments;
-    while(getline(cin, comments)) {
-          cout << comments << endl;
-    }
     
 
         cin >> N; 
