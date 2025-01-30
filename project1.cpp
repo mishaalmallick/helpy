@@ -148,7 +148,7 @@ class Map {
             if(map[sail_location.row - 1][sail_location.col].identity != '#' 
              && map[sail_location.row - 1][sail_location.col].identity != '@'){ // north
                 if(map[sail_location.row - 1][sail_location.col].identity != 'o' 
-                || map[sail_location.row - 1][sail_location.col].identity != 'c' ){
+                && map[sail_location.row - 1][sail_location.col].identity != 'c' ){
                     map[sail_location.row - 1][sail_location.col].path = 'N';
                     map[sail_location.row - 1][sail_location.col].identity = 'c';
                     sail_container.push_back(map[sail_location.row - 1][sail_location.col]);
@@ -174,7 +174,7 @@ class Map {
             if(map[sail_location.row + 1][sail_location.col].identity != '#'
             && map[sail_location.row + 1][sail_location.col].identity != '@'){ // south
                 if(map[sail_location.row + 1][sail_location.col].identity != 'o' 
-                || map[sail_location.row + 1][sail_location.col].identity != 'c' ){
+                && map[sail_location.row + 1][sail_location.col].identity != 'c' ){
                     map[sail_location.row + 1][sail_location.col].path = 'S';
                     map[sail_location.row + 1][sail_location.col].identity = 'c';
                     sail_container.push_back(map[sail_location.row + 1][sail_location.col]);
@@ -200,7 +200,7 @@ class Map {
             if(map[sail_location.row][sail_location.col + 1].identity != '#' 
             && map[sail_location.row][sail_location.col + 1].identity != '@'){ // east 
                 if(map[sail_location.row][sail_location.col + 1].identity != 'o' 
-                || map[sail_location.row][sail_location.col + 1].identity != 'c' ){
+                && map[sail_location.row][sail_location.col + 1].identity != 'c' ){
                     map[sail_location.row][sail_location.col + 1].path = 'E';
                     map[sail_location.row][sail_location.col + 1].identity = 'c';
                     sail_container.push_back(map[sail_location.row][sail_location.col + 1]);
@@ -311,7 +311,7 @@ class Map {
         if(sail_location.col != 0){
             if(map[sail_location.row][sail_location.col - 1].identity != '#'){ // west 
                 if(map[sail_location.row][sail_location.col - 1].identity == 'o'
-                &&map[sail_location.row][sail_location.col - 1].identity != 'c'){
+                && map[sail_location.row][sail_location.col - 1].identity != 'c'){
                     map[sail_location.row][sail_location.col - 1].path = 'W';
                     map[sail_location.row][sail_location.col - 1].identity = 'c';
                     map[sail_location.row][sail_location.col - 1].Search_or_Not = 'S';
@@ -520,22 +520,30 @@ int main(int argc, char* argv[]){
     bool captain_sq = true;
     bool firstmate_sq = false;
     string hunt_order = "NESW";
-    bool statistics; 
+    bool statistics = false; 
     char show_path = ' '; 
     char map_or_list = ' ';
     int opt;
     uint32_t N; 
-
-    string line;
-    while (getline(cin, line)) {
-        if (line.empty()) continue;
-        if (line[0] == '#') cout << line << endl;  // Ignore comment lines
-        map_or_list = line[0]; // First non-comment character
-        break;
+    string comments;
+    while(getline(cin, comments)) {
+        if(comments[0] == 'M'){
+            map_or_list = 'M';
+            break;
+        }
+        if(comments[0] == 'L'){
+            map_or_list = 'L';
+            break;
+        }
     }
-    
 
         cin >> N; 
+            FullMap.resize(N);
+
+    // Resize each inner vector to N
+    for (uint32_t i = 0; i < N; ++i) {
+        FullMap[i].resize(N);
+    }
         uint32_t row_num = 0;
         uint32_t col_num = 0;
         char character; 
@@ -565,19 +573,36 @@ int main(int argc, char* argv[]){
             while(cin >> row_num >> col_num >> character);
             submit.row = row_num;
             submit.col = col_num;
-            submit.identity = character;
+            submit.identity = character; 
             FullMap[row_num][col_num] = submit; 
             if(character == '@'){
                 starting = submit;
-                }
+            }
             if(character == '$'){
                 ending = submit;
-                }
+            }
         } 
 
-        cout << starting.row << starting.col << endl; 
+        Map Game = Map(FullMap, starting, N, N, ending, verbose, captain_sq, firstmate_sq, hunt_order);
+        
+        Game.Router();
 
-  
+        if(verbose){
+            print_help();
+        }
+        if(statistics){
+            print_help();
+        }
+        if(show_path == 'M'){
+           print_help();
+        }
+        if(show_path == 'L'){
+           print_help();
+        }
+
+        Game.Print_Results();
+
+
     static struct option long_options[] = {
         {"help", no_argument, 0, 'h'},
         {"captain", required_argument, 0, 'c'},
@@ -625,26 +650,6 @@ int main(int argc, char* argv[]){
                 print_help();
                 return 1;
         }
-
-  
-    
-   
-        if(verbose){
-            cout << " hi" << endl;
-        }
-        if(statistics){
-            cout << " hi" << endl;
-        }
-        if(show_path == 'M'){
-           cout << " hi" << endl;
-        }
-        if(show_path == 'L'){
-            cout << " hi" << endl;
-        }
-        if(captain_sq && firstmate_sq){
-            cout << "g" << endl; 
-        }
-       
 
     };
 
