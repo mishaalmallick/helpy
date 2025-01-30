@@ -627,6 +627,7 @@ int main(int argc, char* argv[]){
     
     Map Game = Map(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location,
     v, ss, ms, hunt_ordering);
+    if(statistics && path) { cout << "yay" << "\n";
     cout << starting_location.row << starting_location.col << "\n";
     return 0; 
 
