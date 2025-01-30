@@ -167,10 +167,10 @@ int main(int argc, char* argv[]) {
     Map Game(Full_Map, starting_location, maximum_number_rows, maximum_number_rows, ending_location, v, ss, ms, hunt_ordering);
     Game.Router();
     Game.Backtracking();
-       if(v){
+       if(v || true){
         Game.Verbose();
     }
-    if(statistics){
+    if(statistics || true){
         Game.Stats_Print();
     }
     if(map_or_list == 'M' && path){
