@@ -528,14 +528,7 @@ int main(int argc, char* argv[]){
 
     string comments;
     while(getline(cin, comments)) {
-        if(comments == "M"){
-            map_or_list = 'M';
-            break;
-        }
-        if(comments == "L"){
-            map_or_list = 'L';
-            break;
-        }
+          cout << comments << endl;
     }
 
         cin >> N; 
@@ -545,7 +538,6 @@ int main(int argc, char* argv[]){
         Coordinate submit; 
         Coordinate starting;
         Coordinate ending;
-        cout << map_or_list << endl;
         if(map_or_list == 'M'){
             while(cin >> character){
                 submit.row = row_num;
