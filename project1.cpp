@@ -581,6 +581,7 @@ int main(int argc, char* argv[]){
             std::cout << line << std::endl; // Output or process the comment
         } else {
             break;
+        }
     }
     cin >> map_or_list;
     cout << map_or_list << endl;
