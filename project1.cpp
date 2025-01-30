@@ -573,6 +573,7 @@ int main(int argc, char* argv[]){
         }
     }
     string comment;
+    cout <<"shi << endl;
     getline(cin, comment);
     getline(cin, comment);
     cin >> map_or_list;
