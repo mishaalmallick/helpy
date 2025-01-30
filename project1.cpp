@@ -579,6 +579,7 @@ int main(int argc, char* argv[]){
     string comment;
     getline(cin, comment);
     cin >> map_or_list;
+    cout << map_or_list << endl;
     if(map_or_list == 'M'){
         char identite;
         uint32_t row_count = 0;
@@ -588,7 +589,9 @@ int main(int argc, char* argv[]){
         while(cin >> identite){
             submit.row = row_count;
             submit.col = col_count;
+            cout << row_count << col_count << endl;
             submit.identity = identite;
+            cout << identite << endl;
             Full_Map[row_count][col_count] = submit;
             if(submit.identity == '@'){
                 starting_location = submit;
