@@ -521,7 +521,7 @@ int main(int argc, char* argv[]){
     bool firstmate_sq = false;
     string hunt_order = "NESW";
     bool statistics; 
-    char show_path; 
+    char show_path = ' '; 
     char map_or_list = ' ';
     int opt;
     uint32_t N; 
