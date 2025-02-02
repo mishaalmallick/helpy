@@ -575,9 +575,11 @@ cout << "done " << endl;
         cout << "6" << endl;
         if(treasure_location.Search_or_Not == 'S'){
             searching.push_back(treasure_location);
+            cout << "7" << endl;
             count3++;
         } else {
             sailing.push_back(treasure_location);
+            cout << "8" << endl;
             count2++;
         }
         
