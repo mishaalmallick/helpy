@@ -563,7 +563,7 @@ cout << "done " << endl;
         cout << "1" << endl;
         Coordinate backtracking_loc = sail_location; 
         cout << sail_location.path << "\n";
-        cout << sail_location.row << sail_location.col << "\n";
+       
         cout << "2" << endl;
         path.push_back(sail_location.path);
         cout << "3" << endl;
