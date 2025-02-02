@@ -66,87 +66,55 @@ class Map {
            
             if(hunt_order[0] == 'N'){
                 North_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[0] == 'E'){
                 East_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[0] == 'S'){
                 South_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[0] == 'W'){
                 West_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             }
             if(hunt_order[1] == 'N'){
                 North_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[1] == 'E'){
                 East_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+ 
             } else if (hunt_order[1] == 'S'){
                 South_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[1] == 'W'){
                 West_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             }
             if(hunt_order[2] == 'N'){
                 North_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[2] == 'E'){
                 East_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[2] == 'S'){
                 South_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             } else if (hunt_order[2] == 'W'){
                 West_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+
             }
             if(hunt_order[3] == 'N'){
                 North_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+  
             } else if (hunt_order[3] == 'E'){
                 East_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+    
             } else if (hunt_order[3] == 'S'){
                 South_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+         
             } else if (hunt_order[3] == 'W'){
                 West_SailLocation();
-                if(treasure_found){
-                    break;
-                }
+       
             }
         
         if(!search_container.empty()){
@@ -170,11 +138,13 @@ class Map {
             if(!search_stack){
                 search_location = search_container.front();
                 search_container.pop_front();
+                land_locations++;
             } else {
                 search_location = search_container.back();
                 search_container.pop_back();
+                land_locations++;
             }
-            land_locations++;
+            
             if(hunt_order[0] == 'N'){
                 North_SearchLocation();
                 if(treasure_found && verbose){
@@ -341,7 +311,7 @@ class Map {
             cout << sail_location.row - 1 << sail_location.col << endl; */
             if(map[sail_location.row - 1][sail_location.col].identity == '$'){
                 map[sail_location.row - 1][sail_location.col].path = 'N';
-                treasure_found = true; 
+               
             }
             if(map[sail_location.row - 1][sail_location.col].identity != '#' 
              && map[sail_location.row - 1][sail_location.col].identity != '@'){ // north
@@ -373,7 +343,7 @@ class Map {
             //cout << sail_location.row + 1 << sail_location.col << endl;
             if(map[sail_location.row + 1][sail_location.col].identity == '$'){
                 map[sail_location.row + 1][sail_location.col].path = 'S';
-                treasure_found = true; 
+             
             }
             if(map[sail_location.row + 1][sail_location.col].identity != '#'
             && map[sail_location.row + 1][sail_location.col].identity != '@'){ // south
@@ -404,7 +374,7 @@ class Map {
            // cout << sail_location.row << sail_location.col + 1 << endl;
             if(map[sail_location.row][sail_location.col + 1].identity == '$'){
                 map[sail_location.row][sail_location.col +  1].path = 'E';
-                treasure_found = true; 
+                
             }
             if(map[sail_location.row][sail_location.col + 1].identity != '#' 
             && map[sail_location.row][sail_location.col + 1].identity != '@'){ // east 
@@ -436,7 +406,7 @@ class Map {
 
             if(map[sail_location.row][sail_location.col - 1].identity == '$'){
                 map[sail_location.row][sail_location.col - 1].path = 'W';
-                treasure_found = true; 
+          
             }
             if(map[sail_location.row][sail_location.col - 1].identity != '#'
             && map[sail_location.row][sail_location.col - 1].identity != '@'){ // west 
@@ -697,7 +667,7 @@ class Map {
     void Print_Map(){
         for(uint32_t i = 0; i < max_row; i++){
             for (uint32_t j = 0; j < max_col; j++){
-                cout << map[i][j].identity;
+                cout << map[i][j].check;
             }
             cout << endl;
         }
@@ -911,6 +881,7 @@ int main(int argc, char* argv[]){
        
         Game.Router();
         Game.Backtracking();   
+        Game.Print_Map();
         Game.Print_Results();
 
 
