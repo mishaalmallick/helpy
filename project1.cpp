@@ -767,7 +767,7 @@ void print_help() {
 int main(int argc, char* argv[]){ 
     cout << "hi" << endl;
     char c;
-    if(c == ' '){
+    if(cin >> c){
         cout << " why " << endl;
     }
     vector<vector<Coordinate>> FullMap;
