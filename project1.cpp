@@ -775,7 +775,7 @@ int main(int argc, char* argv[]){
         switch (opt) {
             case 'h':
                 print_help();
-                
+                exit(1);
             case 'c':
                 if(string(optarg) == "QUEUE"){
                     captain_sq = false;
