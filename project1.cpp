@@ -21,10 +21,10 @@ class Map {
     vector<char> path; 
     deque<Coordinate> sail_container;
     deque<Coordinate> search_container;
-    Coordinate sail_location;
-    Coordinate search_location; 
-    Coordinate start_location; 
-    Coordinate treasure_location;
+    Coordinate sail_location = {0, 0, '.', 'n', '.', 'N'};
+    Coordinate search_location = {0, 0, '.', 'n', '.', 'N'}; 
+    Coordinate start_location = {0, 0, '.', 'n', '.', 'N'}; 
+    Coordinate treasure_location = {0, 0, '.', 'n', '.', 'N'};
     bool treasure_found; 
     uint32_t max_row;
     uint32_t max_col;
