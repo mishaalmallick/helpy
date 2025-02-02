@@ -585,7 +585,7 @@ cout << "done " << endl;
         
 
         while(backtracking_loc.identity != '@'){
-            cout << "11" << endl; 
+            cout << backtracking_loc.path << endl; 
             if(backtracking_loc.path == 'N'){
                 cout << "12" << endl;
                 path.push_back(backtracking_loc.path);
