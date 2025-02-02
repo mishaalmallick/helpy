@@ -32,7 +32,7 @@ class Map {
     bool verbose;
     uint32_t water_locations = 0;
     uint32_t land_locations = 0;
-    uint32_t ashore;
+    uint32_t ashore = 0;
     bool sail_stack;
     bool search_stack;
     string hunt_order;
