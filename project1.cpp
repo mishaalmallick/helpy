@@ -750,6 +750,7 @@ void print_help() {
 }
 
 int main(int argc, char* argv[]){ 
+    ios_base::sync_with_stdio(false);
     
     vector<vector<Coordinate>> FullMap;
     bool verbose = false; 
