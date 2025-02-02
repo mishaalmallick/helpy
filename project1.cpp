@@ -49,6 +49,7 @@ class Map {
     }
 
     void Router(){
+        cout << start_location.row << start_location.col << endl;
         sail_container.push_back(start_location); 
         while(!sail_container.empty()){ // check out of bounds
             if(treasure_found){
