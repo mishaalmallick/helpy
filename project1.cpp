@@ -30,8 +30,8 @@ class Map {
     uint32_t max_col;
     uint32_t total_locations;
     bool verbose;
-    uint32_t water_locations;
-    uint32_t land_locations;
+    uint32_t water_locations = 0;
+    uint32_t land_locations = 0;
     uint32_t ashore;
     bool sail_stack;
     bool search_stack;
