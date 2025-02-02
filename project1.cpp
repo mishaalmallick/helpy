@@ -750,7 +750,9 @@ void print_help() {
 }
 
 int main(int argc, char* argv[]){ 
-    
+    char c;
+    cin >> c;
+    cout << c;
     vector<vector<Coordinate>> FullMap;
     bool verbose = false; 
     bool captain_sq = true;
@@ -829,6 +831,7 @@ int main(int argc, char* argv[]){
         }
 
     };
+    
     uint32_t N; 
     string comments;
     while(getline(cin, comments)) {
