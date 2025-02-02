@@ -615,17 +615,19 @@ class Map {
             cout << start_location.row << "," << start_location.col << "\n";
 
             
-            
+        if(count2 != 0) {
             for(uint32_t i = count2 - 1; i > 0; i--){
                 cout << sailing[i].row << "," << sailing[i].col << "\n";
             }
             cout << sailing[0].row << "," << sailing[0].col << "\n";
-            
+        }
             
             cout << "Search:" << "\n";
+        if(count3 != 0){
             for(uint32_t i = count3 - 1; i >0; i--){
                 cout << searching[i].row << "," << searching[i].col << "\n";
             }
+        }
             if(!searching.empty()){
                 cout << searching[0].row << "," << searching[0].col << "\n";
             }
