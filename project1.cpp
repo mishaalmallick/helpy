@@ -849,6 +849,7 @@ int main(int argc, char* argv[]){
     for (uint32_t i = 0; i < N; ++i) {
         FullMap[i].resize(N);
     }
+    cout << map_or_list << endl;
         uint32_t row_num = 0;
         uint32_t col_num = 0;
         char character; 
