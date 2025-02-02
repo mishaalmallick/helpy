@@ -833,7 +833,6 @@ int main(int argc, char* argv[]){
     uint32_t N; 
     string comments;
     while(getline(cin, comments)) {
-        cout << comments[0];
         if(comments[0] == 'M'){
             map_or_list = 'M';
             break;
