@@ -562,6 +562,7 @@ cout << "done " << endl;
     void Backtracking(){
         cout << "1" << endl;
         Coordinate backtracking_loc = sail_location; 
+        cout << sail_location.path << "\n";
         cout << "2" << endl;
         path.push_back(sail_location.path);
         cout << "3" << endl;
@@ -657,9 +658,6 @@ cout << "done " << endl;
                 backtracking_loc = map[backtracking_loc.row][backtracking_loc.col + 1];
                 cout << " p " << endl;
                 count++;
-            }
-            if(backtracking_loc.path == '.'){
-                break;
             }
         }
         path.resize(count);
