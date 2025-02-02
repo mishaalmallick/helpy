@@ -49,7 +49,6 @@ class Map {
     }
 
     void Router(){
-        cout << start_location.row << start_location.col << endl;
         sail_container.push_back(start_location); 
         while(!sail_container.empty()){ // check out of bounds
             if(treasure_found){
@@ -57,40 +56,30 @@ class Map {
             }
             
             if(!sail_stack){
-                cout << "h" << endl;
                 sail_location = sail_container.front();
                 sail_container.pop_front();
-                cout << "h" << endl;
-                cout << sail_location.row << sail_location.col << endl;
             } else {
-                cout << "h" << endl;
                 sail_location = sail_container.back();
                 sail_container.pop_back();
-                cout << "h" << endl;
-                cout << sail_location.row << sail_location.col << endl;
             }
             water_locations++;
            
             if(hunt_order[0] == 'N'){
-                cout << "a" << endl;
                 North_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[0] == 'E'){
-                cout << "b" << endl;
                 East_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[0] == 'S'){
-                cout << "c" << endl;
                 South_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[0] == 'W'){
-                cout << "d" << endl;
                 West_SailLocation();
                 if(treasure_found){
                     break;
@@ -102,7 +91,6 @@ class Map {
                     break;
                 }
             } else if (hunt_order[1] == 'E'){
-                cout << "b" << endl;
                 East_SailLocation();
                 if(treasure_found){
                     break;
@@ -129,13 +117,11 @@ class Map {
                     break;
                 }
             } else if (hunt_order[2] == 'S'){
-                cout << "c" << endl;
                 South_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[2] == 'W'){
-                cout << "d" << endl;
                 West_SailLocation();
                 if(treasure_found){
                     break;
@@ -351,8 +337,8 @@ class Map {
 
     void North_SailLocation(){
         if(sail_location.row != 0){ 
-             cout << "North, Sail" << endl;
-            cout << sail_location.row - 1 << sail_location.col << endl; 
+            /* cout << "North, Sail" << endl;
+            cout << sail_location.row - 1 << sail_location.col << endl; */
             if(map[sail_location.row - 1][sail_location.col].identity == '$'){
                 map[sail_location.row - 1][sail_location.col].path = 'N';
                 treasure_found = true; 
@@ -383,8 +369,8 @@ class Map {
 
     void South_SailLocation(){
         if(sail_location.row != max_row - 1){
-             cout << "South, Sail" << endl;
-            cout << sail_location.row + 1 << sail_location.col << endl;
+            // cout << "South, Sail" << endl;
+            //cout << sail_location.row + 1 << sail_location.col << endl;
             if(map[sail_location.row + 1][sail_location.col].identity == '$'){
                 map[sail_location.row + 1][sail_location.col].path = 'S';
                 treasure_found = true; 
@@ -414,8 +400,8 @@ class Map {
 
     void East_SailLocation(){
         if(sail_location.col != max_col - 1){
-               cout << "East, Sail" << endl;
-            cout << sail_location.row << sail_location.col + 1 << endl;
+             //  cout << "East, Sail" << endl;
+           // cout << sail_location.row << sail_location.col + 1 << endl;
             if(map[sail_location.row][sail_location.col + 1].identity == '$'){
                 map[sail_location.row][sail_location.col +  1].path = 'E';
                 treasure_found = true; 
@@ -445,8 +431,8 @@ class Map {
 
     void West_SailLocation(){
         if(sail_location.col != 0){
-           cout << "West, Sail" << endl;
-            cout << sail_location.row  << sail_location.col - 1 << endl;
+           //cout << "West, Sail" << endl;
+          //  cout << sail_location.row  << sail_location.col - 1 << endl;
 
             if(map[sail_location.row][sail_location.col - 1].identity == '$'){
                 map[sail_location.row][sail_location.col - 1].path = 'W';
@@ -477,8 +463,8 @@ class Map {
 
     void North_SearchLocation(){
         if(search_location.row != 0){
-                  cout << "North, Search" << endl;
-            cout << search_location.row  - 1 << search_location.col << endl;
+           //       cout << "North, Search" << endl;
+           // cout << search_location.row  - 1 << search_location.col << endl;
             if(map[search_location.row - 1][search_location.col].identity != '#'){ // north
                 if(map[search_location.row - 1][search_location.col].identity == 'o' &&
                 map[search_location.row - 1][search_location.col].check != 'c'){
@@ -501,8 +487,8 @@ class Map {
 
     void East_SearchLocation(){
         if(search_location.col != max_col - 1){
-                cout << "East, Search" << endl;
-            cout << search_location.row << search_location.col + 1 << endl;
+            //    cout << "East, Search" << endl;
+          //  cout << search_location.row << search_location.col + 1 << endl;
             if(map[search_location.row][search_location.col + 1].identity != '#'){ // east 
                 if(map[search_location.row][search_location.col + 1].identity == 'o'
                 && map[search_location.row][search_location.col + 1].check != 'c'){
@@ -525,8 +511,8 @@ class Map {
 
     void West_SearchLocation(){
        if(search_location.col != 0){
-           cout << "West, Search" << endl;
-            cout << search_location.row  << search_location.col - 1 << endl;
+          // cout << "West, Search" << endl;
+           // cout << search_location.row  << search_location.col - 1 << endl;
             if(map[search_location.row][search_location.col - 1].identity != '#'){ // west 
                 if(map[search_location.row][search_location.col - 1].identity == 'o' &&
                 map[search_location.row][search_location.col - 1].check != 'c'){
@@ -550,8 +536,8 @@ class Map {
     void South_SearchLocation(){
 
         if(search_location.row != max_row - 1){
-                        cout << "South, Search" << endl;
-            cout << search_location.row + 1 << search_location.col << endl;
+            //            cout << "South, Search" << endl;
+           // cout << search_location.row + 1 << search_location.col << endl;
             if(map[search_location.row + 1][search_location.col].identity != '#'){ // north
                 if(map[search_location.row + 1][search_location.col].identity == 'o'
                 && map[search_location.row + 1][search_location.col].check != 'c'){
@@ -571,7 +557,6 @@ class Map {
 
             }
         }
-        cout << sail_location.row << sail_location.col << endl;
     }
 
     void Backtracking(){
@@ -765,11 +750,7 @@ void print_help() {
 }
 
 int main(int argc, char* argv[]){ 
-    cout << "hi" << endl;
-    char c;
-    if(cin >> c){
-        cout << " why " << endl;
-    }
+    
     vector<vector<Coordinate>> FullMap;
     bool verbose = false; 
     bool captain_sq = true;
@@ -848,7 +829,6 @@ int main(int argc, char* argv[]){
         }
 
     };
-    
     uint32_t N; 
     string comments;
     while(getline(cin, comments)) {
