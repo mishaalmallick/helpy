@@ -63,6 +63,7 @@ class Map {
             } else {
                 sail_location = sail_container.back();
                 sail_container.pop_back();
+                cout << sail_location.row << sail_location.col << endl;
             }
             water_locations++;
            
