@@ -585,7 +585,7 @@ cout << "done " << endl;
         
 
         while(backtracking_loc.identity != '@'){
-            cout << backtracking_loc.path << endl; 
+            cout << "11" << endl; 
             if(backtracking_loc.path == 'N'){
                 cout << "12" << endl;
                 path.push_back(backtracking_loc.path);
@@ -657,6 +657,9 @@ cout << "done " << endl;
                 backtracking_loc = map[backtracking_loc.row][backtracking_loc.col + 1];
                 cout << " p " << endl;
                 count++;
+            }
+            if(backtracking_loc.path == '.'){
+                break;
             }
         }
         path.resize(count);
