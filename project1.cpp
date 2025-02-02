@@ -144,7 +144,7 @@ class Map {
                 search_container.pop_back();
                 land_locations++;
             }
-            
+      
             if(hunt_order[0] == 'N'){
                 North_SearchLocation();
                 if(treasure_found && verbose){
@@ -490,7 +490,7 @@ class Map {
                     map[search_location.row][search_location.col - 1].check = 'c';
                     map[search_location.row][search_location.col - 1].Search_or_Not = 'S';
                     search_container.push_back(map[search_location.row][search_location.col - 1]);
-               
+     
                     total_locations++;
                
                 }
@@ -881,7 +881,7 @@ int main(int argc, char* argv[]){
        
         Game.Router();
         Game.Backtracking();   
-        Game.Print_Map();
+
         Game.Print_Results();
 
 
