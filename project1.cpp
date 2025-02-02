@@ -825,6 +825,7 @@ int main(int argc, char* argv[]){
                 break;
             default:
                 print_help();
+                exit(1);
              
             
         }
