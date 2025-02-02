@@ -856,11 +856,10 @@ int main(int argc, char* argv[]){
         Coordinate starting = {0, 0, '.', ' ', 'N'};
         Coordinate ending = {0, 0, '.', ' ', 'N'};
         if(map_or_list == 'M'){
-           
+           cout << " sup" << endl;
             while(cin >> character){
                 if(character != '\n'){
-                    cout << row_num;
-                    cout << col_num;
+                    cout << "sup" << endl;
                 submit.row = row_num;
                 submit.col = col_num;
                 submit.identity = character; 
