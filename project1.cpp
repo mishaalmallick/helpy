@@ -829,6 +829,7 @@ int main(int argc, char* argv[]){
         }
 
     };
+    ios_base::sync_with_stdio(false);
     uint32_t N; 
     string comments;
     while(getline(cin, comments)) {
@@ -844,6 +845,7 @@ int main(int argc, char* argv[]){
     }
 
     cin >> N; 
+    cout << N << endl;
     FullMap.resize(N, vector<Coordinate>(N));
 
     
