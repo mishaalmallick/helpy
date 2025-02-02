@@ -568,8 +568,11 @@ cout << "done " << endl;
         uint32_t count = 0;
         uint32_t count2 = 0; 
         uint32_t count3 = 0; 
+        cout << "4" << endl;
         vector<Coordinate> searching;
+        cout << "5" << endl;
         vector<Coordinate> sailing; 
+        cout << "6" << endl;
         if(treasure_location.Search_or_Not == 'S'){
             searching.push_back(treasure_location);
             count3++;
