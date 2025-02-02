@@ -25,10 +25,10 @@ class Map {
     Coordinate search_location; 
     Coordinate start_location; 
     Coordinate treasure_location;
-    bool treasure_found = false; 
+    bool treasure_found; 
     uint32_t max_row;
     uint32_t max_col;
-    uint32_t total_locations = 0;
+    uint32_t total_locations;
     bool verbose = false;
     uint32_t water_locations = 0;
     uint32_t land_locations = 0;
@@ -557,7 +557,6 @@ class Map {
 
             }
         }
-        cout << sail_location.row << sail_location.col << endl;
     }
 
     void Backtracking(){
@@ -844,7 +843,7 @@ int main(int argc, char* argv[]){
     }
 
     cin >> N; 
-    FullMap.resize(N);
+    FullMap.resize(N, vector<Coordinate>(N));
 
     
     for (uint32_t i = 0; i < N; ++i) {
