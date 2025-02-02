@@ -25,10 +25,10 @@ class Map {
     Coordinate search_location = {0, 0, '.', 'n', '.', 'N'}; 
     Coordinate start_location = {0, 0, '.', 'n', '.', 'N'}; 
     Coordinate treasure_location = {0, 0, '.', 'n', '.', 'N'};
-    bool treasure_found; 
+    bool treasure_found = false; 
     uint32_t max_row;
     uint32_t max_col;
-    uint32_t total_locations;
+    uint32_t total_locations = 0;
     bool verbose;
     uint32_t water_locations = 0;
     uint32_t land_locations = 0;
