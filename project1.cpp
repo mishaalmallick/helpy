@@ -767,8 +767,9 @@ void print_help() {
 int main(int argc, char* argv[]){ 
     cout << "hi" << endl;
     char c;
-    cin >> c;
-    cout << c;
+    if(c == ' '){
+        cout << " why " << endl;
+    }
     vector<vector<Coordinate>> FullMap;
     bool verbose = false; 
     bool captain_sq = true;
