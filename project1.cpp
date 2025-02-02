@@ -332,7 +332,7 @@ class Map {
             }
             
         }
-
+cout << "done " << endl;
     }
 
     void North_SailLocation(){
