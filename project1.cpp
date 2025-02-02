@@ -700,7 +700,7 @@ class Map {
                             map[i][j].identity = '+';
                         }
                     } 
-                    if(j != max_col){
+                    if(j != max_col - 1){
                         if((map[i][j].identity == '|'&& map[i][j - 1].identity == '-' )||
                         (map[i][j].identity == '|'&& map[i][j - 1].identity == '$') ){
                             map[i][j].identity = '+';
