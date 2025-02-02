@@ -25,7 +25,7 @@ class Map {
     Coordinate search_location; 
     Coordinate start_location; 
     Coordinate treasure_location;
-    bool treasure_found; 
+    bool treasure_found = false; 
     uint32_t max_row;
     uint32_t max_col;
     uint32_t total_locations = 0;
