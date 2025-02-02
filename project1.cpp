@@ -28,7 +28,7 @@ class Map {
     bool treasure_found; 
     uint32_t max_row;
     uint32_t max_col;
-    uint32_t total_locations;
+    uint32_t total_locations = 0;
     bool verbose = false;
     uint32_t water_locations = 0;
     uint32_t land_locations = 0;
