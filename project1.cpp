@@ -581,55 +581,71 @@ cout << "done " << endl;
             if(backtracking_loc.path == 'N'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '|';
+                cout << " a " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
                     count3++;
+                    cout << " b " << endl;
 
                 } else {
                     sailing.push_back(backtracking_loc);
                     count2++;
+                    cout << " c " << endl;
                 }
-                backtracking_loc = map[backtracking_loc.row + 1][backtracking_loc.col];     
+                backtracking_loc = map[backtracking_loc.row + 1][backtracking_loc.col];    
+                cout << " d " << endl; 
                 count++;
    
             }
             if(backtracking_loc.path == 'E'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '-';
+                cout << " e " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
                     count3++;
+                    cout << " f " << endl;
                 } else {
                     sailing.push_back(backtracking_loc);
                     count2++;
+                    cout << " g " << endl;
                 }
                 backtracking_loc = map[backtracking_loc.row][backtracking_loc.col - 1];           
                 count++;
+                cout << " h " << endl;
             }
             if(backtracking_loc.path == 'S'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '|';
+                cout << " i " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
                     count3++;
+                    cout << " j " << endl;
                 } else {
                     sailing.push_back(backtracking_loc);
                     count2++;
+                    cout << " k " << endl;
                 }
-                backtracking_loc = map[backtracking_loc.row - 1][backtracking_loc.col];         
+                backtracking_loc = map[backtracking_loc.row - 1][backtracking_loc.col];  
+                cout << " l " << endl;       
                 count++;
             }
             if(backtracking_loc.path == 'W'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '-';
+                cout << " m " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
+                    cout << " n " << endl;
                     count3++;
                 } else {
                     sailing.push_back(backtracking_loc);
+                    cout << " o " << endl;
                     count2++;
                 }
                 backtracking_loc = map[backtracking_loc.row][backtracking_loc.col + 1];
+                cout << " p " << endl;
                 count++;
             }
         }
@@ -916,6 +932,3 @@ int main(int argc, char* argv[]){
     return 0; 
 
 }
-
-
-
