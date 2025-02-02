@@ -859,6 +859,8 @@ int main(int argc, char* argv[]){
            
             while(cin >> character){
                 if(character != '\n'){
+                    cout << row_num;
+                    cout << col_num;
                 submit.row = row_num;
                 submit.col = col_num;
                 submit.identity = character; 
