@@ -560,9 +560,11 @@ cout << "done " << endl;
     }
 
     void Backtracking(){
-        
+        cout << "1" << endl;
         Coordinate backtracking_loc = sail_location; 
+        cout << "2" << endl;
         path.push_back(sail_location.path);
+        cout << "3" << endl;
         uint32_t count = 0;
         uint32_t count2 = 0; 
         uint32_t count3 = 0; 
