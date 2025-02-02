@@ -557,6 +557,7 @@ class Map {
 
             }
         }
+        cout << sail_location.row << sail_location.col << endl;
     }
 
     void Backtracking(){
