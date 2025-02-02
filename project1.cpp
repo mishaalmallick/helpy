@@ -21,23 +21,23 @@ class Map {
     vector<char> path; 
     deque<Coordinate> sail_container;
     deque<Coordinate> search_container;
-    Coordinate sail_location = {0, 0, '.', 'n', '.', 'N'};
-    Coordinate search_location = {0, 0, '.', 'n', '.', 'N'}; 
-    Coordinate start_location = {0, 0, '.', 'n', '.', 'N'}; 
-    Coordinate treasure_location = {0, 0, '.', 'n', '.', 'N'};
+    Coordinate sail_location;
+    Coordinate search_location; 
+    Coordinate start_location; 
+    Coordinate treasure_location;
     bool treasure_found = false; 
     uint32_t max_row;
     uint32_t max_col;
     uint32_t total_locations = 0;
-    bool verbose;
+    bool verbose = false;
     uint32_t water_locations = 0;
     uint32_t land_locations = 0;
     uint32_t ashore = 0;
-    bool sail_stack;
-    bool search_stack;
-    string hunt_order;
-    char pathing;
-    bool statistics; 
+    bool sail_stack = true;
+    bool search_stack = false;
+    string hunt_order = "NESW";
+    char pathing = ' ';
+    bool statistics = false; 
 
 
     public: // min
@@ -332,7 +332,7 @@ class Map {
             }
             
         }
-cout << "done " << endl;
+
     }
 
     void North_SailLocation(){
@@ -557,112 +557,85 @@ cout << "done " << endl;
 
             }
         }
+        cout << sail_location.row << sail_location.col << endl;
     }
 
     void Backtracking(){
-        cout << "1" << endl;
+        
         Coordinate backtracking_loc = sail_location; 
-        cout << sail_location.path << "\n";
-       
-        cout << "2" << endl;
         path.push_back(sail_location.path);
-        cout << "3" << endl;
         uint32_t count = 0;
         uint32_t count2 = 0; 
         uint32_t count3 = 0; 
-        cout << "4" << endl;
         vector<Coordinate> searching;
-        cout << "5" << endl;
         vector<Coordinate> sailing; 
-        cout << "6" << endl;
         if(treasure_location.Search_or_Not == 'S'){
             searching.push_back(treasure_location);
-            cout << "7" << endl;
             count3++;
         } else {
             sailing.push_back(treasure_location);
-            cout << "8" << endl;
             count2++;
         }
         
 
         while(backtracking_loc.identity != '@'){
-          
             if(backtracking_loc.path == 'N'){
-                cout << "12" << endl;
                 path.push_back(backtracking_loc.path);
-                cout << "13" << endl;
                 map[backtracking_loc.row][backtracking_loc.col].identity = '|';
-                cout << " a " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
                     count3++;
-                    cout << " b " << endl;
 
                 } else {
                     sailing.push_back(backtracking_loc);
                     count2++;
-                    cout << " c " << endl;
                 }
-                backtracking_loc = map[backtracking_loc.row + 1][backtracking_loc.col];    
-                cout << " d " << endl; 
+                backtracking_loc = map[backtracking_loc.row + 1][backtracking_loc.col];     
                 count++;
    
             }
             if(backtracking_loc.path == 'E'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '-';
-                cout << " e " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
                     count3++;
-                    cout << " f " << endl;
                 } else {
                     sailing.push_back(backtracking_loc);
                     count2++;
-                    cout << " g " << endl;
                 }
                 backtracking_loc = map[backtracking_loc.row][backtracking_loc.col - 1];           
                 count++;
-                cout << " h " << endl;
             }
             if(backtracking_loc.path == 'S'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '|';
-                cout << " i " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
                     count3++;
-                    cout << " j " << endl;
                 } else {
                     sailing.push_back(backtracking_loc);
                     count2++;
-                    cout << " k " << endl;
                 }
-                backtracking_loc = map[backtracking_loc.row - 1][backtracking_loc.col];  
-                cout << " l " << endl;       
+                backtracking_loc = map[backtracking_loc.row - 1][backtracking_loc.col];         
                 count++;
             }
             if(backtracking_loc.path == 'W'){
                 path.push_back(backtracking_loc.path);
                 map[backtracking_loc.row][backtracking_loc.col].identity = '-';
-                cout << " m " << endl;
                 if(backtracking_loc.identity == 'o'){
                     searching.push_back(backtracking_loc);
-                    cout << " n " << endl;
                     count3++;
                 } else {
                     sailing.push_back(backtracking_loc);
-                    cout << " o " << endl;
                     count2++;
                 }
                 backtracking_loc = map[backtracking_loc.row][backtracking_loc.col + 1];
-                cout << " p " << endl;
                 count++;
             }
         }
         path.resize(count);
-cout << "done 2 " << endl;
+
         if(statistics){
             Stats_Print();
         }
@@ -804,6 +777,7 @@ int main(int argc, char* argv[]){
             case 'h':
                 print_help();
                 exit(1);
+                
             case 'c':
                 if(string(optarg) == "QUEUE"){
                     captain_sq = false;
@@ -944,3 +918,6 @@ int main(int argc, char* argv[]){
     return 0; 
 
 }
+
+
+
