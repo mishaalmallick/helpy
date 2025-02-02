@@ -634,7 +634,7 @@ cout << "done " << endl;
             }
         }
         path.resize(count);
-
+cout << "done 2 << endl;
         if(statistics){
             Stats_Print();
         }
