@@ -66,21 +66,25 @@ class Map {
             water_locations++;
            
             if(hunt_order[0] == 'N'){
+                cout << "a" << endl;
                 North_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[0] == 'E'){
+                cout << "b" << endl;
                 East_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[0] == 'S'){
+                cout << "c" << endl;
                 South_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[0] == 'W'){
+                cout << "d" << endl;
                 West_SailLocation();
                 if(treasure_found){
                     break;
@@ -92,6 +96,7 @@ class Map {
                     break;
                 }
             } else if (hunt_order[1] == 'E'){
+                cout << "b" << endl;
                 East_SailLocation();
                 if(treasure_found){
                     break;
@@ -118,11 +123,13 @@ class Map {
                     break;
                 }
             } else if (hunt_order[2] == 'S'){
+                cout << "c" << endl;
                 South_SailLocation();
                 if(treasure_found){
                     break;
                 }
             } else if (hunt_order[2] == 'W'){
+                cout << "d" << endl;
                 West_SailLocation();
                 if(treasure_found){
                     break;
