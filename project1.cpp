@@ -57,11 +57,13 @@ class Map {
             }
             
             if(!sail_stack){
+                cout << "h" << endl;
                 sail_location = sail_container.front();
                 sail_container.pop_front();
                 cout << "h" << endl;
                 cout << sail_location.row << sail_location.col << endl;
             } else {
+                cout << "h" << endl;
                 sail_location = sail_container.back();
                 sail_container.pop_back();
                 cout << "h" << endl;
